@@ -10,7 +10,7 @@ type Heal struct {
 }
 
 func (h Heal) Run(src cmd.Source, o *cmd.Output) {
-	isPlayer := src.(*player.Player)
-	isPlayer.Heal(isPlayer.MaxHealth(), healing.SourceCustom{})
+	p := src.(*player.Player)
+	p.Heal(p.MaxHealth(), healing.SourceCustom{})
 	o.Print("You have healed yourself")
 }

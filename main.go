@@ -30,11 +30,14 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	cmd.Register(cmd.New("gamemode", "change you gamemode", []string{"gm"}, commands.Gamemode{}))
+	cmd.Register(cmd.New("heal", "heal yourself", []string{}, commands.Heal{}))
+	cmd.Register(cmd.New("feed", "feed yourself", []string{}, commands.Feed{}))
+	cmd.Register(cmd.New("forms", "Check the forms", []string{}, commands.Forms{}))
+	cmd.Register(cmd.New("spawn", "go to spawn?", []string{}, commands.Spawn{}))
+
 	for srv.Accept(nil) {
 	}
-
-	cmd.Register(cmd.New("gamemode", "change you gamemode", []string{"gm"}, commands.Gamemode{}))
-	cmd.Register(cmd.New("heal", "heal yoursled", []string{}, commands.Heal{}))
 }
 
 // readConfig reads the configuration from the config.toml file, or creates the file if it does not yet exist.
